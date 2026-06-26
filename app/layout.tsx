@@ -16,7 +16,7 @@ const inter = Inter({
   weight: ["300", "400", "500", "600", "700"],
 });
 
-const SITE_URL = "https://spacer.az";
+const SITE_URL = "https://spacer-app-theta.vercel.app";
 const TITLE = "Spacer Azerbaijan | Sertifikatlı Spacer & Coilover Satışı";
 const DESCRIPTION =
   "Azərbaycanın ən premium spacer və coilover satış mağazası. BMW, Mercedes-Benz, Toyota üçün TÜV sertifikatlı məhsullar. WhatsApp ilə sifariş edin.";
