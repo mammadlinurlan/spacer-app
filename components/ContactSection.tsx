@@ -23,7 +23,7 @@ const HOURS = [
   { day: "Bazar", time: "10:00 – 17:00" },
 ];
 
-const ICON_CELL = "w-10 h-10 rounded-xl border border-zinc-200 bg-zinc-50 flex items-center justify-center shrink-0";
+const ICON_CELL = "w-10 h-10 rounded-xl bg-color-brand  flex items-center justify-center shrink-0";
 
 export default function ContactSection() {
   return (
@@ -132,23 +132,24 @@ export default function ContactSection() {
             <div className="border-t border-zinc-100" />
 
             {/* Action Buttons */}
-            <div className="flex flex-col gap-3 mt-auto">
+            <div className="flex flex-col gap-2.5 mt-auto">
               <a
                 href="https://wa.me/994515411147?text=Salam%20Spacer%20Azerbaijan!%20M%C9%99hsullar%20haqq%C4%B1nda%20m%C9%99lumat%20almaq%20ist%C9%99yir%C9%99m."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 bg-whatsapp hover:bg-whatsapp-dark text-white font-heading font-bold text-sm py-3 rounded-xl uppercase tracking-widest transition-all duration-200 shadow-[0_4px_16px_rgba(37,211,102,0.3)]"
+                className="flex items-center justify-center gap-2 bg-whatsapp hover:bg-[#1ebe5d] text-white font-heading font-semibold text-sm py-2.5 rounded-xl uppercase tracking-widest transition-all duration-200 shadow-sm"
               >
-                <WhatsAppIcon size={16} />
+                <WhatsAppIcon size={15} />
                 WhatsApp'da Yaz
               </a>
               <a
                 href="https://www.instagram.com/spacer.azerbaijan/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-instagram flex items-center justify-center gap-2 text-white font-heading font-bold text-sm py-3 rounded-xl uppercase tracking-widest transition-all duration-200 shadow-[0_4px_16px_rgba(188,24,136,0.25)]"
+                className="flex items-center justify-center gap-2 text-white font-heading font-semibold text-sm py-2.5 rounded-xl uppercase tracking-widest transition-all duration-200 shadow-sm"
+                style={{ background: "linear-gradient(to right, #f58529, #dd2a7b)" }}
               >
-                <InstagramIcon size={16} />
+                <InstagramIcon size={15} />
                 Instagram'da İzlə
               </a>
             </div>

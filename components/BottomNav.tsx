@@ -101,7 +101,7 @@ export default function BottomNav() {
           }
           className="flex-1 flex flex-col items-center justify-center gap-1"
         >
-          <span className="text-whatsapp flex items-center justify-center">
+          <span className="text-brand-red flex items-center justify-center">
             <WhatsAppIcon size={28} />
           </span>
         </motion.button>

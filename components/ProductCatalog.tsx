@@ -272,7 +272,7 @@ function SpacerCard({
             href={buildWhatsAppUrl(product, make, model, year)}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-1 bg-whatsapp hover:bg-whatsapp-dark text-white font-heading font-semibold text-[11px] py-2 rounded-lg w-full transition-all duration-200"
+            className="flex items-center justify-center gap-1 bg-brand-red hover:bg-brand-red-dark text-white font-heading font-semibold text-[11px] py-2 rounded-lg w-full transition-all duration-200"
           >
             <WhatsAppIcon size={11} />
             Sifariş Et
@@ -328,7 +328,7 @@ function CoiloverCard({ product }: Readonly<{ product: CoiloverProduct }>) {
             href={buildWhatsAppUrl(product)}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-1 bg-whatsapp hover:bg-whatsapp-dark text-white font-heading font-semibold text-[11px] py-2 rounded-lg w-full transition-all duration-200"
+            className="flex items-center justify-center gap-1 bg-brand-red hover:bg-brand-red-dark text-white font-heading font-semibold text-[11px] py-2 rounded-lg w-full transition-all duration-200"
           >
             <WhatsAppIcon size={11} />
             Sifariş Et
@@ -359,10 +359,9 @@ function FilterSelect({
         disabled={disabled}
         onChange={(e) => onChange(e.target.value)}
         className={`w-full appearance-none font-body text-sm font-medium rounded-xl px-4 py-3 pr-10 border transition-all duration-200 outline-none
-          ${
-            disabled
-              ? "bg-zinc-100 border-zinc-200 text-zinc-400 cursor-not-allowed"
-              : "bg-white border-zinc-300 text-zinc-900 cursor-pointer hover:border-brand-red focus:border-brand-red focus:ring-1 focus:ring-brand-red/30"
+          ${disabled
+            ? "bg-zinc-100 border-zinc-200 text-zinc-400 cursor-not-allowed"
+            : "bg-white border-zinc-300 text-zinc-900 cursor-pointer hover:border-brand-red focus:border-brand-red focus:ring-1 focus:ring-brand-red/30"
           }`}
       >
         <option value="">{label}</option>
@@ -374,9 +373,8 @@ function FilterSelect({
       </select>
       <ChevronDown
         size={16}
-        className={`absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none ${
-          disabled ? "text-zinc-300" : "text-zinc-500"
-        }`}
+        className={`absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none ${disabled ? "text-zinc-300" : "text-zinc-500"
+          }`}
       />
     </div>
   );
@@ -436,15 +434,7 @@ export default function ProductCatalog() {
           >
             Məhsullarımız
           </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="font-body text-zinc-500 mt-3 max-w-xl mx-auto text-sm"
-          >
-            Avtomobilinizi seçin — sizə uyğun spacer anında filtrələnsin.
-          </motion.p>
+
         </div>
 
         {/* 3-Tier Filter */}

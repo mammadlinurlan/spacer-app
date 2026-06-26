@@ -131,7 +131,7 @@ export default function HeroSection() {
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.97 }}
             onClick={scrollToProducts}
-            className="relative bg-brand-red hover:bg-brand-red-dark text-white font-heading font-bold text-xs md:text-sm px-8 py-3 rounded-lg uppercase tracking-[0.15em] transition-colors duration-200 btn-neon-red"
+            className="relative bg-brand-red hover:bg-brand-red-dark text-white font-heading font-bold text-xs md:text-sm px-9 py-3.5 rounded-lg uppercase tracking-wider transition-colors duration-200 btn-neon-red"
           >
             AVTOMOBİLİNƏ UYĞUN SEÇİM ET
           </motion.button>
