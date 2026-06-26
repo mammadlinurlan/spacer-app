@@ -79,11 +79,10 @@ export default function ReviewGallery() {
               key={i}
               onClick={() => instanceRef.current?.moveToIdx(i)}
               aria-label={`Slayd ${i + 1}`}
-              className={`rounded-full transition-all duration-200 ${
-                i === current
+              className={`rounded-full transition-all duration-200 ${i === current
                   ? "w-5 h-1.5 bg-brand-red"
                   : "w-1.5 h-1.5 bg-zinc-300 hover:bg-zinc-400"
-              }`}
+                }`}
             />
           ))}
         </div>
@@ -92,7 +91,7 @@ export default function ReviewGallery() {
         <div className="mt-6 bg-white border border-zinc-200 shadow-sm rounded-2xl p-5 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div>
             <p className="font-heading font-bold text-zinc-900 text-sm uppercase tracking-wide">
-              Sifariş et
+              Dəyişimə hazırsan? Sifariş et
             </p>
             <p className="font-body text-zinc-500 text-xs mt-0.5">
               WhatsApp ilə sifariş, quraşdırma peşəkar şəkildə edilir.
