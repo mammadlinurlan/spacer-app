@@ -45,8 +45,7 @@ export default function ReviewGallery() {
           {PHOTOS.map(({ id, src }) => (
             <div
               key={id}
-              className="keen-slider__slide relative rounded-2xl overflow-hidden border border-zinc-200/80 shadow-md"
-              style={{ aspectRatio: "3 / 4" }}
+              className="keen-slider__slide relative rounded-2xl overflow-hidden border border-zinc-200/80 shadow-md h-115 md:h-130"
             >
               <Image
                 src={src}
@@ -57,12 +56,7 @@ export default function ReviewGallery() {
                 draggable={false}
                 priority={id === 1}
               />
-              <div className="absolute bottom-0 inset-x-0 bg-linear-to-t from-black/65 to-transparent pt-10 pb-3 px-3">
-                <div className="flex justify-between">
-                  <span className="font-heading font-bold text-[10px] uppercase tracking-widest text-white/75">Sol: Əvvəl</span>
-                  <span className="font-heading font-bold text-[10px] uppercase tracking-widest text-white/75">Sağ: Sonra</span>
-                </div>
-              </div>
+
               <div className="absolute top-3 right-3">
                 <span className="font-body text-[10px] font-semibold text-white bg-black/50 backdrop-blur-sm px-2 py-0.5 rounded-full">
                   #{id}
@@ -80,8 +74,8 @@ export default function ReviewGallery() {
               onClick={() => instanceRef.current?.moveToIdx(i)}
               aria-label={`Slayd ${i + 1}`}
               className={`rounded-full transition-all duration-200 ${i === current
-                  ? "w-5 h-1.5 bg-brand-red"
-                  : "w-1.5 h-1.5 bg-zinc-300 hover:bg-zinc-400"
+                ? "w-5 h-1.5 bg-brand-red"
+                : "w-1.5 h-1.5 bg-zinc-300 hover:bg-zinc-400"
                 }`}
             />
           ))}
