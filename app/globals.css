@@ -1,26 +1,113 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* Brand palette */
+  --color-brand-red: #D11F26;
+  --color-brand-red-dark: #a01820;
+  --color-brand-blue: #1B75BC;
+  --color-brand-blue-dark: #145a8e;
+  --color-whatsapp: #25D366;
+  --color-whatsapp-dark: #1aaf55;
+  --color-instagram-from: #f09433;
+  --color-instagram-via: #e6683c;
+  --color-instagram-to: #bc2a8d;
+
+  /* Font stacks — resolved from next/font CSS vars set on <html> */
+  --font-heading: var(--font-montserrat);
+  --font-body: var(--font-inter);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ─── Global resets ─────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+  background-color: #fafafa; /* zinc-50 — light mode */
+  color: #09090b;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter, system-ui, sans-serif);
+  background-color: #fafafa;
+  min-height: 100vh;
+}
+
+/* ─── Hide scrollbar utility ─────────────────────────────────────── */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* ─── Video.js background-video overrides ────────────────────────── */
+.vjs-bg-player.video-js {
+  width: 100% !important;
+  height: 100% !important;
+  background-color: transparent !important;
+}
+.vjs-bg-player .vjs-tech {
+  object-fit: cover !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+.vjs-bg-player .vjs-loading-spinner,
+.vjs-bg-player .vjs-big-play-button,
+.vjs-bg-player .vjs-control-bar {
+  display: none !important;
+}
+
+/* ─── Neon red pulse — hero CTA button ──────────────────────────── */
+@keyframes neon-red-pulse {
+  0%, 100% {
+    box-shadow: 0 0 12px rgba(209,31,38,0.45), 0 0 28px rgba(209,31,38,0.2);
+  }
+  50% {
+    box-shadow: 0 0 22px rgba(209,31,38,0.75), 0 0 48px rgba(209,31,38,0.35), 0 0 72px rgba(209,31,38,0.12);
+  }
+}
+.btn-neon-red {
+  animation: neon-red-pulse 2.8s ease-in-out infinite;
+}
+
+/* ─── Carbon-fiber bottom nav background ────────────────────────── */
+.carbon-nav {
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(255,255,255,0.018) 0px,
+      rgba(255,255,255,0.018) 1px,
+      transparent 1px,
+      transparent 5px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(255,255,255,0.018) 0px,
+      rgba(255,255,255,0.018) 1px,
+      transparent 1px,
+      transparent 5px
+    ),
+    #000;
+}
+
+/* ─── Instagram gradient button ──────────────────────────────────── */
+.btn-instagram {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+.btn-instagram:hover {
+  background: linear-gradient(45deg, #d4812a 0%, #c95a32 25%, #bf2139 50%, #b01d57 75%, #a01575 100%);
+}
+
+/* ─── Leaflet popup overrides (light mode) ───────────────────────── */
+.leaflet-popup-content-wrapper {
+  background: #ffffff !important;
+  color: #09090b !important;
+  border: 1px solid #e4e4e7 !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12) !important;
+}
+.leaflet-popup-tip {
+  background: #ffffff !important;
+}
+.leaflet-popup-close-button {
+  color: #71717a !important;
 }
