@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { motion } from "framer-motion";
 import { Car, Layers, MapPin } from "lucide-react";
 import { WhatsAppIcon } from "./icons";
@@ -11,7 +11,7 @@ const TABS = [
     icon: Car,
     label: "Seçim Et",
     href: "#products",
-    activeColor: "#1B75BC",
+    activeColor: "#D11F26",
   },
   {
     id: "reviews",
@@ -34,6 +34,15 @@ const WA_URL =
 
 export default function BottomNav() {
   const [activeId, setActiveId] = useState<string>("");
+  // Klik scroll-u zamanı observer-in aralıq section-ları aktiv etməsini bloklayır
+  const lockUntilRef = useRef(0);
+
+  // Refresh-də brauzerin əvvəlki scroll mövqeyinə atmasının qarşısını al
+  useEffect(() => {
+    if ("scrollRestoration" in globalThis.history) {
+      globalThis.history.scrollRestoration = "manual";
+    }
+  }, []);
 
   useEffect(() => {
     const sections = ["products", "reviews", "contact"];
@@ -42,6 +51,7 @@ export default function BottomNav() {
       if (!el) return null;
       const obs = new IntersectionObserver(
         ([entry]) => {
+          if (Date.now() < lockUntilRef.current) return;
           if (entry.isIntersecting) setActiveId(id);
         },
         { threshold: 0.35 }
@@ -54,13 +64,15 @@ export default function BottomNav() {
 
   const handleTap = useCallback((id: string, href: string) => {
     const el = document.querySelector(href);
+    // Smooth-scroll bitənə qədər observer-i blokla ki, aralıq section-lar yanıb-sönməsin
+    lockUntilRef.current = Date.now() + 1000;
     if (el) el.scrollIntoView({ behavior: "smooth" });
     setActiveId(id);
   }, []);
 
   return (
     <nav
-      className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl border-t border-zinc-200/80"
+      className="md:hidden fixed bottom-0 left-0 right-0 z-999999999 bg-white/95 backdrop-blur-xl border-t border-zinc-200/80"
       style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
     >
       <div className="flex items-stretch h-16">
